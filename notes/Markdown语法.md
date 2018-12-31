@@ -6,13 +6,13 @@ emsp;语法：`#` 的个数代表标题级别。
 
 ## 2.文本样式
 
-`**加粗**` emsp; **加粗** 
+`**加粗**` &emsp; **加粗** 
 
-`*斜体*` emsp; *斜体* 
+`*斜体*` &emsp; *斜体* 
 
-`***斜体加粗*** ` emsp; ***斜体加粗*** 
+`***斜体加粗*** ` &emsp; ***斜体加粗*** 
 
-`~~删除线~~ ` emsp; ~~删除线~~ 
+`~~删除线~~ ` &emsp; ~~删除线~~ 
 
 ### 引用文本
 
@@ -43,7 +43,7 @@ public class CurrentTime {
 ```
 
 ## 4.链接
-emsp;语法：`[显示的文字](url)`
+&emsp;语法：`[显示的文字](url)`
 
 [链接到百度](https://www.baidu.com/)
 
@@ -56,7 +56,7 @@ emsp;语法：`[显示的文字](url)`
 [emoji]:https://www.webfx.com/tools/emoji-cheat-sheet/
 
 ## 5.列表
-emsp;语法： `* + -`均可。 
+&emsp;语法： `* + -`均可。 
 
 - 主列表1
 * 主列表2
@@ -65,7 +65,7 @@ emsp;语法： `* + -`均可。
 + 主列表3
 
 ### 任务列表
-emsp;语法：  `- [x] 或者 - [ ]`
+&emsp;语法： `- [x] 或者 - [ ]`
 
 - [x] 任务列表1(已完成)
 - [ ] 任务列表2(未完成)
@@ -83,12 +83,15 @@ emsp;语法：  `- [x] 或者 - [ ]`
 ## 8.图片
 
   + 网络图片 &emsp; 语法： `![test](url)`
+  
   	![网络图片](https://github.com/magentaLi/My-CS-Notes/blob/master/pictures/pxyz.jpg"蜘蛛侠之平行宇宙")
   + 把图片存入markdown
      请参考 [这个链接](https://www.zhihu.com/question/21065229)
   
 ## 9.缩进
+
 `&ensp;`半角缩进
+
 `&emsp;`全角缩进
 
 
