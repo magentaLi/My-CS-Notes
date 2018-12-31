@@ -1,11 +1,9 @@
-[TOC]
 
+[TOC]
 
 # Markdown语法简记
 
 ## 1.标题
-
-
 ## 2.文本样式
 
 **加粗** 
@@ -16,7 +14,7 @@
 
 ~~删除线~~ 
 
-## 引用文本
+### 引用文本
 >大家好，我是一个引用文本！
 
 ## 3.代码
@@ -75,7 +73,7 @@ public class CurrentTime {
   \*\* 对关键字\*的注释方式
   
 ## 8.图片
-  
+
   + 网络图片
   	![网络图片](https://github.com/magentaLi/My-CS-Notes/blob/master/pictures/pxyz.jpg)
   + 把图片存入markdown
