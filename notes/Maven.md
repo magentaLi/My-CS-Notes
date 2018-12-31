@@ -49,7 +49,7 @@
 部分详细解释见下文。
 
 ## 4. 常用maven命令
-**注意：**在命令行下运行maven命令的时候需要进入pom.xml所在的目录下。
+**注意：在命令行下运行maven命令的时候需要进入pom.xml所在的目录下。**
 + 1. 清理： `mvn clean` 
 + 2. 编译主程序: `mvn compile`
 + 3. 编译测试程序： `mvn test-compile`
@@ -89,7 +89,7 @@
   ```xml
   <version>1.0.0</version>
   ```
-+  **Maven 工程的坐标与仓库中的路径对应的关系**
++  **Maven 工程的坐标与仓库中的路径对应的关系:**
 ```xml
 <groupid>org.springframework</groupid>
 <artifactid>spring-core</artifactid>
@@ -98,6 +98,35 @@
 则其对应的仓库中的路径为：
 `org/springframework/spring-core/4.0.0.RELEASE/spring-core-4.0.0.RELEASE.jar`
 
+## 8.仓库
+### 仓库的分类
++ 本地仓库：当前电脑上部署的仓库目录，为当前电脑上的所有maven工程服务
++ 远程仓库：
+   - 私服：搭建在局域网环境中，为局域网范围内的所有maven工程服务
+   - 中央仓库： 架设在Internet上，为全世界的Maven工程服务
+   - 中央仓库镜像：为了分担中央仓库的流量，提升用户的访问速度
+### 仓库中保存的内容
++ Maven 自身所需的插件
++ 第三方框架或者工具
++ 我们自己写的Maven工程
+
+## 9. 依赖
++ Maven 解析依赖信息时会到本地仓库中查找被依赖的jar包，**对于我们自己开发的Maven工程，使用`mvn install`命令安装后即可进入仓库**
++ 依赖的范围
+  - **compile** 范围依赖
+    * 对主程序是否有效：有效
+    * 对测试程序是否有效： 有效
+    * 是否参与打包：参与
+    * 是否参与部署：参与
+    * 典型例子：spring-core
+    
+  - **test** 范围依赖
+    * 对主程序是否有效：无 效
+    * 对测试程序是否有效： 有效
+    * 是否参与打包：参与
+    * 是否参与部署：参与
+    * 典型例子：spring-core
+  
 
 
 
