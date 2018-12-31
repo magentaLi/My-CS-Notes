@@ -75,7 +75,7 @@ public class CurrentTime {
 ## 8.图片
 
   + 网络图片
-  	![网络图片](https://github.com/magentaLi/My-CS-Notes/blob/master/pictures/pxyz.jpg)
+  	![网络图片](https://github.com/magentaLi/My-CS-Notes/blob/master/pictures/pxyz.jpg"蜘蛛侠之平行宇宙")
   + 把图片存入markdown
      请参考 [这个链接](https://www.zhihu.com/question/21065229)
   
