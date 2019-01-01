@@ -134,7 +134,55 @@
     * 是否参与部署：不参与
     * 典型例子：servlet-api.jar
     
+ ## 10. 生命周期
+ + 各个构建环节执行的顺序：不能打乱，必须按照既定的正确顺序来执行
+ + Maven的核心程序中定义了抽象的生命周期，生命周期的各个阶段的具体任务是由插件来完成的
+ + Maven核心程序为了更好的实现自动化构建，按照这一特点执行生命周期中的各个阶段：不论要执行生命周期的哪一个阶段，都是从这个生命周期的最初的位置开始的
+ + 插件和目标
+    * 生命周期的各个阶段仅仅定义了要执行的任务是什么
+    * 各个阶段和插件的目标是对应的
+    * 相似的目标由特定的插件来完成
+  
+    |生命周期阶段|插件目标|插件|
+    |-------------|---------|------|
+    |compile|compile|maven-compile-plugin|
+    |test-compile|test-compile|maven-compile-plugin|
+    * 可以将目标看做“调用插件功能的命令”
+  
+ ## 11. 依赖
+  * 依赖的传递性
+    - 好处：可以传递的依赖不必在每个模块工程中都重复声明，在“最下面”的工程中依赖一次即可
+    - **注意：** 非compile范围的依赖不能传递，所以在各个工程模块中如果有需要就得重复声明依赖
     
+  * 依赖的排除
+    - 需要排除的场合
+    图片
+    - 排除的方法
+    ```xml
+      <exclusions>
+        <exclusion>
+          <groupId>commons-logging</groupId>
+          <artifactId>commons-logging</artifactId>
+        </exclusion>
+      </exclusions>
+    ```
+   * 依赖的原则
+      - 解决模块工程之间的jar包冲突问题
+      - 原则1：路径最短者优先
+      - 原则2：路径相同者先声明的依赖优先
+   * 统一管理依赖的版本，建议的配置方式
+      - 在properties标签内使用自定义标签统一声明版本号
+      ```xml
+          <properties>
+              <atljk.spring.version>4.0.0.RELEASE</atljk.spring.version>
+          </properties>
+      ```
+      - 在需要统一设置版本的位置，使用EL表达式引用声明的版本号
+      ```xml
+          <version>${atljk.spring.version}</version>
+      ```
+ 
+      
   
   
 
