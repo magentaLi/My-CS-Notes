@@ -1,6 +1,6 @@
 # maven学习笔记
 - [maven是什么](#1.-maven是什么？)
-- [仓库](#8.-仓库)
+- [仓库](#仓库)
 
 ## 1.maven是什么？
 + Maven是一款服务于Java平台的自动化构建工具。
@@ -101,7 +101,7 @@
 则其对应的仓库中的路径为：
 `org/springframework/spring-core/4.0.0.RELEASE/spring-core-4.0.0.RELEASE.jar`
 
-## 8.仓库
+## 仓库
 ### 仓库的分类
 + 本地仓库：当前电脑上部署的仓库目录，为当前电脑上的所有maven工程服务
 + 远程仓库：
