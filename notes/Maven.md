@@ -134,6 +134,8 @@
     * 是否参与部署：不参与
     * 典型例子：servlet-api.jar
     
+  ![图示](https://github.com/magentaLi/My-CS-Notes/blob/master/pictures/maven_note_2.png)
+    
  ## 10. 生命周期
  + 各个构建环节执行的顺序：不能打乱，必须按照既定的正确顺序来执行
  + Maven的核心程序中定义了抽象的生命周期，生命周期的各个阶段的具体任务是由插件来完成的
@@ -156,7 +158,8 @@
     
   * 依赖的排除
     - 需要排除的场合
-    图片
+    
+     ![图示](https://github.com/magentaLi/My-CS-Notes/blob/master/pictures/maven_note_3.png)
     - 排除的方法
     ```xml
       <exclusions>
@@ -181,31 +184,62 @@
       ```xml
           <version>${atljk.spring.version}</version>
       ```
- 
+ ## 12.继承
+  - 现状：
+    Hello依赖的junit:4.0
+    HelloFriend依赖的junit:4.0
+    MakeFriends依赖的junit:4.9
+    
+    由于test范围的依赖不能传递：所以必然会分散在各个模块工程中，很容易造成版本不一致
+    
+  - 需求：统一管理各个模块工程中的junit依赖的版本
+  - 解决思路：将junit依赖统一提取到“父”工程中，在自工程中声明junit依赖时不指定版本。
+  - 操作步骤：
+    1. 创建一个Maven工程作为父工程。注意：**打包方式为pom**
+    ```xml
+      <groupId>com.atljk.maven</groupId>
+      <artifactId>Parent</artifactId>
+      <version>0.0.1-SNAPSHOT</version>
+      <packaging>pom</packaging>
+    ```
+    2. 在子工程中声明对父工程的引用
+    ```xml
+    <parent>
+      <groupId>com.atljk.maven</groupId>
+      <artifactId>Parent</artifactId>
+      <version>0.0.1-SNAPSHOT</version>
       
-  
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+      <!-- 以当前的文件为基准的父工程pom.xml文件的相对路径 -->
+      <relativePath>../Parent/pom.xml</relativePath>
+    </parent>  
+  ```
+    3. 将子工程的坐标中与父工程坐标中重复的内容删除
+    4. 在父工程中统一管理junit的依赖
+    ```xml
+    <!-- 配置依赖的管理 -->
+      <dependencyManagement>
+        <dependencies>
+          <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.9</version>
+            <scope>test</scope>
+          </dependency>
+        </dependencies>
+      </dependencyManagement>
+    ```
+    5. 在子工程中删除junit依赖的版本号部分
+   注意：**配置继承后，执行安装命令时要先安装父工程**
+   
+ ## 13. 聚合
+  + 作用：一键安装各个模块工程
+  + 配置方式： 在一个“总的聚合工程”中配置各个参与聚合的模块
+  ```xml
+    <!-- 配置聚合 -->
+    <modules>
+      <!-- 指定各个子工程的相对路径 -->
+      <module>../HelloFriend</module>
+      <module>../MakeFriends</module>
+      <module>../Hello</module>
+    </modules>
+  ```
