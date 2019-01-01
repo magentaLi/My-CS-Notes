@@ -27,9 +27,11 @@
  ## 在servlet中进行跳转的方式：
  - 请求重定向的方式跳转到test.jsp 当前路径为ServletPathDirection/servlet/
  ```jsp
-    //response.sendRedirect("test.jsp"); 此写法错误
-    //应该使用 request.getContextPath() 获得上下文对象,下面的写法为正确写法
+    //response.sendRedirect("test.jsp"); 此写法错误,下面正确
+    //response.sendRedirect("../test.jsp");
+    //或者使用 request.getContextPath() 获得上下文对象,下面的写法也正确
     response.sendRedirect(request.getContextPath() + "/test.jsp");
+    
  ```
  - 服务器内部跳转的两种方式：（两种方式均正确)
  ```java
