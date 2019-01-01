@@ -160,6 +160,7 @@
     - 需要排除的场合
     
      ![图示](https://github.com/magentaLi/My-CS-Notes/blob/master/pictures/maven_note_3.png)
+     
     - 排除的方法
     ```xml
       <exclusions>
@@ -212,9 +213,11 @@
       <!-- 以当前的文件为基准的父工程pom.xml文件的相对路径 -->
       <relativePath>../Parent/pom.xml</relativePath>
     </parent>  
-  ```
+    ```
+  
     3. 将子工程的坐标中与父工程坐标中重复的内容删除
     4. 在父工程中统一管理junit的依赖
+    
     ```xml
     <!-- 配置依赖的管理 -->
       <dependencyManagement>
@@ -228,12 +231,15 @@
         </dependencies>
       </dependencyManagement>
     ```
+    
     5. 在子工程中删除junit依赖的版本号部分
    注意：**配置继承后，执行安装命令时要先安装父工程**
    
  ## 13. 聚合
+ 
   + 作用：一键安装各个模块工程
   + 配置方式： 在一个“总的聚合工程”中配置各个参与聚合的模块
+  
   ```xml
     <!-- 配置聚合 -->
     <modules>
